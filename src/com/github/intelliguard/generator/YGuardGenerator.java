@@ -46,7 +46,7 @@ public class YGuardGenerator
         final String inFile = configuration.inFile != null ? new File(configuration.inFile).getAbsolutePath() : "injar.jar";
         final File file = configuration.outFile != null ? new File(configuration.outFile) : null;
         final String outFile = file != null ? file.getAbsolutePath() : "outjar.jar";
-        final String yguardFile = new File(configuration.yGuardJar).getAbsolutePath();
+        final String yguardFile = configuration.yGuardJar != null ? new File(configuration.yGuardJar).getAbsolutePath() : "yguard.jar";
         final String logFile = file != null ? new File(file.getParent(), file.getName() + "-yguard.xml").getAbsolutePath() : "logfile.xml";
 
         final StringBuilder sb = new StringBuilder();
