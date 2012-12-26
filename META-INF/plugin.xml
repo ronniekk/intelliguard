@@ -16,11 +16,14 @@
                 and <a href="http://proguard.sourceforge.net/">ProGuard</a> format.</li>
             </ul>
         </p>
-        <p>Project home: <a href="http://code.google.com/p/intelliguard/">http://code.google.com/p/intelliguard/</a>
+        <p>Project home: <a href="https://github.com/ronniekk/intelliguard">https://github.com/ronniekk/intelliguard</a>
     ]]></description>
-    <version>0.9.6</version>
-    <vendor logo="/com/googlecode/intelliguard/guard_mask_16x16.png" email="ronnie.kolehmainen@esn.me">Ronnie Kolehmainen</vendor>
+    <version>0.10</version>
+    <vendor url="https://github.com/ronniekk/intelliguard" logo="/com/googlecode/intelliguard/guard_mask_16x16.png" email="ronnie.kolehmainen at gmail.com">Ronnie Kolehmainen</vendor>
     <change-notes><![CDATA[
+        <ul>0.10
+            <li>Build for IDEA 12</li>
+        </ul>
         <ul>0.9.6
             <li>Fixed inspection ids</li>
         </ul>
@@ -45,7 +48,7 @@
         </ul>
     ]]>
     </change-notes>
-    <idea-version since-build="8000"/>
+    <idea-version since-build="123.1"/>
     <depends>AntSupport</depends>
 
     <project-components>
