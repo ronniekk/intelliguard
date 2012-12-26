@@ -16,6 +16,7 @@
 
 package com.github.intelliguard.runner;
 
+import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.ProgressManager;
 import org.jetbrains.annotations.Nullable;
 
@@ -59,6 +60,10 @@ public class RunProgress
         {
             infoReceiver.info(text);
         }
-        ProgressManager.getInstance().getProgressIndicator().setText2(text);
+        ProgressIndicator progressIndicator = ProgressManager.getInstance().getProgressIndicator();
+        if (progressIndicator != null)
+        {
+            progressIndicator.setText2(text);
+        }
     }
 }
