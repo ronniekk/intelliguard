@@ -53,35 +53,36 @@
 
     <project-components>
         <component>
-            <implementation-class>com.googlecode.intelliguard.GuardProjectComponent</implementation-class>
+            <implementation-class>com.github.intelliguard.GuardProjectComponent</implementation-class>
         </component>
     </project-components>
 
     <application-components>
         <component>
-            <implementation-class>com.googlecode.intelliguard.GuardComponent</implementation-class>
+            <implementation-class>com.github.intelliguard.GuardComponent</implementation-class>
         </component>
     </application-components>
 
     <actions>
-        <action id="IntelliGuard.ObfuscateAction" class="com.googlecode.intelliguard.action.RunObfuscationAction"
+        <action id="IntelliGuard.ObfuscateAction" class="com.github.intelliguard.action.RunObfuscationAction"
                 text="Obfuscate Jar" description="Obfuscate Jar"
-                icon="/com/googlecode/intelliguard/guard_mask_16x16.png">
+                icon="/com/github/intelliguard/guard_mask_16x16.png">
             <add-to-group group-id="BuildMenu" anchor="after" relative-to-action="BuildJar"/>
         </action>
-        <action id="IntelliGuard.GutterAction" class="com.googlecode.intelliguard.action.GutterAction" text="GutterAction"
+        <action id="IntelliGuard.GutterAction" class="com.github.intelliguard.action.GutterAction" text="GutterAction"
                 description="Toggle display of obfuscated symbols">
             <add-to-group group-id="EditorGutterPopupMenu" anchor="last"/>
         </action>
-        <group class="com.googlecode.intelliguard.action.ExportGroup" id="IntelliGuard.ExportPopup" text="Export obfuscation settings" icon="/com/googlecode/intelliguard/guard_mask_16x16.png" popup="true">
+        <group class="com.github.intelliguard.action.ExportGroup" id="IntelliGuard.ExportPopup"
+               text="Export obfuscation settings" icon="/com/github/intelliguard/guard_mask_16x16.png" popup="true">
             <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="ExternalToolsGroup"/>
         </group>
-        <action id="IntelliGuard.ExportYGuard" class="com.googlecode.intelliguard.action.ExportYGuard"
+        <action id="IntelliGuard.ExportYGuard" class="com.github.intelliguard.action.ExportYGuard"
                 text="yGuard"
                 description="Generate yGuard ant file">
             <add-to-group group-id="IntelliGuard.ExportPopup" anchor="last"/>
         </action>
-        <action id="IntelliGuard.ExportProGuard" class="com.googlecode.intelliguard.action.ExportProGuard"
+        <action id="IntelliGuard.ExportProGuard" class="com.github.intelliguard.action.ExportProGuard"
                 text="ProGuard"
                 description="Generate ProGuard configuration file">
             <add-to-group group-id="IntelliGuard.ExportPopup" anchor="last"/>
