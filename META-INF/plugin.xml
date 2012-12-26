@@ -1,0 +1,87 @@
+<idea-plugin version="2">
+    <name>IntelliGuard</name>
+    <description><![CDATA[
+        <p>Java bytecode obfuscation made easy.</p>
+        <p>Seamless integration of <a href="http://www.yworks.com/en/products_yguard_about.html">yGuard</a> in
+        Intellij IDEA. Add Obfuscation facet to your Java module and choose which symbols to keep from obfuscation
+        with IDEA inspections.</p>
+        <p>Key features:
+            <ul>
+                <li>No more hazzles with configuration files. Just hit ALT+ENTER on any symbol in the editor for keep options.</li>
+                <li>Create obfuscated archive directly from the IDE.</li>
+                <li>Refactor support. Kept symbols remain unobfuscated after rename or move.</li>
+                <li>Inspections for common obfuscation pitfalls.</li>
+                <li>Optional (toggleable) gutter icons for obfuscated symbols.</li>
+                <li>Export configuration for <a href="http://www.yworks.com/en/products_yguard_about.html">yGuard</a>
+                and <a href="http://proguard.sourceforge.net/">ProGuard</a> format.</li>
+            </ul>
+        </p>
+        <p>Project home: <a href="http://code.google.com/p/intelliguard/">http://code.google.com/p/intelliguard/</a>
+    ]]></description>
+    <version>0.9.6</version>
+    <vendor logo="/com/googlecode/intelliguard/guard_mask_16x16.png" email="ronnie.kolehmainen@esn.me">Ronnie Kolehmainen</vendor>
+    <change-notes><![CDATA[
+        <ul>0.9.6
+            <li>Fixed inspection ids</li>
+        </ul>
+        <ul>0.9.5
+            <li>Fixed @NotNull assertion error</li>
+            <li>Improved/added dialogs for export</li>
+            <li>Android support</li>
+        </ul>
+        <ul>0.9.4
+            <li>Inspections for reflection issues with servlets, applets, etcetera</li>
+            <li>J2ME support</li>
+            <li>Fixed listener for renaming of packages</li>
+        </ul>
+        <ul>0.9.3
+            <li>Inspections for plugin development</li>
+        </ul>
+        <ul>0.9.2
+            <li>yGuard and ProGuard export</li>
+        </ul>
+        <ul>0.9.1
+            <li>Inspections for serialization issues</li>
+        </ul>
+    ]]>
+    </change-notes>
+    <idea-version since-build="8000"/>
+    <depends>AntSupport</depends>
+
+    <project-components>
+        <component>
+            <implementation-class>com.googlecode.intelliguard.GuardProjectComponent</implementation-class>
+        </component>
+    </project-components>
+
+    <application-components>
+        <component>
+            <implementation-class>com.googlecode.intelliguard.GuardComponent</implementation-class>
+        </component>
+    </application-components>
+
+    <actions>
+        <action id="IntelliGuard.ObfuscateAction" class="com.googlecode.intelliguard.action.RunObfuscationAction"
+                text="Obfuscate Jar" description="Obfuscate Jar"
+                icon="/com/googlecode/intelliguard/guard_mask_16x16.png">
+            <add-to-group group-id="BuildMenu" anchor="after" relative-to-action="BuildJar"/>
+        </action>
+        <action id="IntelliGuard.GutterAction" class="com.googlecode.intelliguard.action.GutterAction" text="GutterAction"
+                description="Toggle display of obfuscated symbols">
+            <add-to-group group-id="EditorGutterPopupMenu" anchor="last"/>
+        </action>
+        <group class="com.googlecode.intelliguard.action.ExportGroup" id="IntelliGuard.ExportPopup" text="Export obfuscation settings" icon="/com/googlecode/intelliguard/guard_mask_16x16.png" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="ExternalToolsGroup"/>
+        </group>
+        <action id="IntelliGuard.ExportYGuard" class="com.googlecode.intelliguard.action.ExportYGuard"
+                text="yGuard"
+                description="Generate yGuard ant file">
+            <add-to-group group-id="IntelliGuard.ExportPopup" anchor="last"/>
+        </action>
+        <action id="IntelliGuard.ExportProGuard" class="com.googlecode.intelliguard.action.ExportProGuard"
+                text="ProGuard"
+                description="Generate ProGuard configuration file">
+            <add-to-group group-id="IntelliGuard.ExportPopup" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
