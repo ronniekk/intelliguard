@@ -162,7 +162,7 @@ public class YFacetConfigurationForm
             {
                 TreeClassChooser classChooser = TreeClassChooserFactory.getInstance(editorContext.getProject()).createProjectScopeChooser("Choose Main-Class");
                 classChooser.showDialog();
-                PsiClass psiClass = classChooser.getSelectedClass();
+                PsiClass psiClass = classChooser.getSelected();
                 if (psiClass != null)
                 {
                     String className = PsiUtils.getKeeperName(psiClass);

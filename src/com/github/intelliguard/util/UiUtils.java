@@ -32,21 +32,6 @@ import com.github.intelliguard.GuardProjectComponent;
  */
 public class UiUtils
 {
-    public static void setStatusMessage(final Project project, final String message)
-    {
-        final WindowManager windowManager = WindowManager.getInstance();
-        final StatusBar statusBar = windowManager.getStatusBar(project);
-        Runnable r = new Runnable()
-        {
-            public void run()
-            {
-                statusBar.setInfo(message);
-            }
-        };
-
-        ApplicationManager.getApplication().invokeLater(r);
-    }
-
     public static void showInfoBallon(final Project project, final String text)
     {
         Runnable r = new Runnable()

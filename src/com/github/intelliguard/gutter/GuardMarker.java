@@ -19,6 +19,7 @@ package com.github.intelliguard.gutter;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.editor.Document;
+import com.intellij.openapi.editor.impl.DocumentMarkupModel;
 import com.intellij.openapi.editor.markup.GutterIconRenderer;
 import com.intellij.openapi.editor.markup.MarkupModel;
 import com.intellij.openapi.editor.markup.RangeHighlighter;
@@ -106,7 +107,7 @@ public class GuardMarker
         final Project project = psiFile.getProject();
         if (document != null)
         {
-            return document.getMarkupModel(project);
+            return DocumentMarkupModel.forDocument(document, project, true);
         }
         return null;
     }

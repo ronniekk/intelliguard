@@ -18,6 +18,8 @@ package com.github.intelliguard.inspection;
 
 import com.intellij.codeInspection.LocalInspectionTool;
 import com.intellij.codeInspection.LocalInspectionToolSession;
+import com.intellij.codeInspection.ProblemsHolder;
+import com.intellij.openapi.module.ModuleType;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiPackage;
@@ -71,23 +73,21 @@ public abstract class GuardInspectionBase extends LocalInspectionTool
     }
 
     @Override
-    public void inspectionStarted(LocalInspectionToolSession session)
-    {
+    public void inspectionStarted(LocalInspectionToolSession session, boolean isOnTheFly) {
         this.localConfiguration = getConfiguration(session.getFile());
 
         this.localPluginDescriptor = getPluginDescriptor(session.getFile());
 
-        super.inspectionStarted(session);
+        super.inspectionStarted(session, isOnTheFly);
     }
 
     @Override
-    public void inspectionFinished(LocalInspectionToolSession session)
-    {
+    public void inspectionFinished(LocalInspectionToolSession session, ProblemsHolder problemsHolder) {
         this.localConfiguration = null;
 
         this.localPluginDescriptor = null;
 
-        super.inspectionFinished(session);
+        super.inspectionFinished(session, problemsHolder);
     }
 
     @Nullable
@@ -98,7 +98,12 @@ public abstract class GuardInspectionBase extends LocalInspectionTool
         {
             return null;
         }
-        if (!"PLUGIN_MODULE".equals(module.getModuleType().getId()))
+        final ModuleType moduleType = ModuleType.get(module);
+        if (moduleType == null)
+        {
+            return null;
+        }
+        if (!"PLUGIN_MODULE".equals(moduleType.getId()))
         {
             return null;
         }

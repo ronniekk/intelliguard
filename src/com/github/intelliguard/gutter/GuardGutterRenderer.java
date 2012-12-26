@@ -58,4 +58,21 @@ public class GuardGutterRenderer extends GutterIconRenderer
     {
         return markupModel.addRangeHighlighter(range.getStartOffset(), range.getEndOffset(), HighlighterLayer.LAST, null, HighlighterTargetArea.LINES_IN_RANGE);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        GuardGutterRenderer that = (GuardGutterRenderer) o;
+
+        if (range != null ? !range.equals(that.range) : that.range != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return range != null ? range.hashCode() : 0;
+    }
 }

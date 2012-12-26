@@ -192,9 +192,9 @@ public class PluginProblemsInspection extends GuardInspectionBase
         {
             for (ComponentConfig component : components)
             {
-                addIfNotNull(classes, component.interfaceClass);
-                addIfNotNull(classes, component.implementationClass);
-                addIfNotNull(classes, component.headlessImplementationClass);
+                addIfNotNull(classes, component.getInterfaceClass());
+                addIfNotNull(classes, component.getImplementationClass());
+                addIfNotNull(classes, component.getHeadlessImplementationClass());
             }
         }
     }

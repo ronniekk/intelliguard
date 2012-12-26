@@ -47,7 +47,7 @@ public class MainClassChooser implements ActionListener
     {
         TreeClassChooser classChooser = TreeClassChooserFactory.getInstance(module.getProject()).createProjectScopeChooser("Choose Main-Class");
         classChooser.showDialog();
-        PsiClass psiClass = classChooser.getSelectedClass();
+        PsiClass psiClass = classChooser.getSelected();
         if (psiClass != null)
         {
             String className = PsiUtils.getKeeperName(psiClass);
