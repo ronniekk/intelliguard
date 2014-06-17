@@ -18,7 +18,8 @@ package com.github.intelliguard.runner;
 
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.compiler.make.ManifestBuilder;
-import com.intellij.openapi.roots.ProjectRootsTraversing;
+import com.intellij.openapi.roots.OrderEnumerator;
+//import com.intellij.openapi.roots.ProjectRootsTraversing;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.PathsList;
 import com.github.intelliguard.model.JarConfig;
@@ -169,7 +170,8 @@ public class JarTask implements Runnable
         String libsPrefix = jarConfig.getLinkLibraries();
         if (libsPrefix != null)
         {
-            PathsList dependenciesList = ProjectRootsTraversing.collectRoots(module, ProjectRootsTraversing.PROJECT_LIBRARIES);
+            PathsList dependenciesList = OrderEnumerator.orderEntries(module).withoutSdk().withoutLibraries().withoutDepModules().getSourcePathsList();
+//            ProjectRootsTraversing.collectRoots(module, ProjectRootsTraversing.PROJECT_LIBRARIES);
             List<VirtualFile> virtualFileList = dependenciesList.getVirtualFiles();
             if (!virtualFileList.isEmpty())
             {
