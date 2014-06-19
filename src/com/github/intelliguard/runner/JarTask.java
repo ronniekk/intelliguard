@@ -19,7 +19,6 @@ package com.github.intelliguard.runner;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.compiler.make.ManifestBuilder;
 import com.intellij.openapi.roots.OrderEnumerator;
-//import com.intellij.openapi.roots.ProjectRootsTraversing;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.PathsList;
 import com.github.intelliguard.model.JarConfig;

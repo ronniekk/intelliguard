@@ -21,7 +21,6 @@ import com.github.intelliguard.facet.GuardFacetConfiguration;
 import com.github.intelliguard.model.Keeper;
 import com.intellij.openapi.roots.OrderEnumerator;
 import com.intellij.util.PathsList;
-//import com.intellij.openapi.roots.ProjectRootsTraversing;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VfsUtil;
 
@@ -50,7 +49,6 @@ public class ProGuardGenerator
         sb.append(MessageFormat.format(OUT_JARS, escape(outFile)));
 
         final PathsList dependenciesList = OrderEnumerator.orderEntries(facet.getModule()).withoutDepModules().withoutModuleSourceEntries().getPathsList();
-        //ProjectRootsTraversing.collectRoots(facet.getModule(), ProjectRootsTraversing.LIBRARIES_AND_JDK);
         final List<VirtualFile> externalDependencies = dependenciesList.getVirtualFiles();
         for (VirtualFile dependencyJar : externalDependencies)
         {

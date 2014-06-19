@@ -22,7 +22,6 @@ import com.github.intelliguard.model.Keeper;
 import com.intellij.openapi.roots.OrderEnumerator;
 import com.intellij.openapi.vfs.VfsUtil;
 import com.intellij.openapi.vfs.VirtualFile;
-//import com.intellij.openapi.roots.ProjectRootsTraversing;
 import com.intellij.util.PathsList;
 
 import java.text.MessageFormat;
@@ -59,7 +58,6 @@ public class YGuardGenerator
         sb.append(MessageFormat.format(IN_OUT_PAIR, inFile, outFile));
 
         final PathsList dependenciesList = OrderEnumerator.orderEntries(facet.getModule()).withoutDepModules().withoutModuleSourceEntries().getPathsList();
-//                ProjectRootsTraversing.collectRoots(facet.getModule(), ProjectRootsTraversing.LIBRARIES_AND_JDK);
         final List<VirtualFile> externalDependencies = dependenciesList.getVirtualFiles();
         if (!externalDependencies.isEmpty())
         {
