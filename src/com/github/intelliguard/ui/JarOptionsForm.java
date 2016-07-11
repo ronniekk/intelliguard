@@ -55,7 +55,7 @@ public class JarOptionsForm
     private TextFieldWithBrowseButton obfuscatedJarPath;
     private TextFieldWithBrowseButton mainClass;
     private static final Icon FOLDER_ICON = IconLoader.getIcon("/nodes/folder.png");
-    private static final Icon MODULE_ICON = IconLoader.getIcon("/nodes/ModuleClosed.png");
+    private static final Icon MODULE_ICON = IconLoader.getIcon("/nodes/moduleGroup.png");
     private static final Icon JAR_ICON = IconLoader.getIcon("/fileTypes/archive.png");
 
     public JarOptionsForm(@NotNull GuardFacet guardFacet)

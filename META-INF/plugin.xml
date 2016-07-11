@@ -18,9 +18,15 @@
         </p>
         <p>Project home: <a href="https://github.com/ronniekk/intelliguard">https://github.com/ronniekk/intelliguard</a>
     ]]></description>
-    <version>0.10</version>
+    <version>0.11</version>
     <vendor url="https://github.com/ronniekk/intelliguard" logo="/com/googlecode/intelliguard/guard_mask_16x16.png" email="ronnie.kolehmainen at gmail.com">Ronnie Kolehmainen</vendor>
     <change-notes><![CDATA[
+        <ul>0.11
+            <li>Build for IDEA 13</li>
+            <li>Minimal tested version: 12.0.4</li>
+            <li>Fixed icon issue</li>
+            <li>Migrate from deprecated intellij openapi</li>
+        </ul>
         <ul>0.10
             <li>Build for IDEA 12</li>
         </ul>
